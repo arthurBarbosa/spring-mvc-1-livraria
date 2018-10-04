@@ -29,9 +29,6 @@
 	            <input type="hidden" name="precos[${status.index}].tipo" value="${tipoPreco}" />
 	        </div>
    		</c:forEach>
-   		
-		
-
 
 		<button type="submit">Cadastrar</button>
 	</form>
