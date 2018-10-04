@@ -25,7 +25,7 @@ public class ProdutosController {
 
 	@Autowired
 	private ProdutoDAO produtoDao;
-	
+
 	@InitBinder
 	public void InitBinder(WebDataBinder binder) {
 		binder.addValidators(new ProdutoValidation());
@@ -42,8 +42,8 @@ public class ProdutosController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView gravar(@Valid Produto produto,BindingResult result, RedirectAttributes redirectAttributes) {
-		if(result.hasErrors()) {
+	public ModelAndView gravar(@Valid Produto produto, BindingResult result, RedirectAttributes redirectAttributes) {
+		if (result.hasErrors()) {
 			return form();
 		}
 		produtoDao.gravar(produto);

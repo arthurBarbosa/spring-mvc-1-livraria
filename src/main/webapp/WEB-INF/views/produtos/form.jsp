@@ -1,25 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais -
-	Casa do Código</title>
+<title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais - Casa do Código</title>
 </head>
 <body>
 
-	<form action="/casadocodigo/produtos" method="post">
+	<h1>Casa do Código</h1>
+	<form:form action="/casadocodigo/produtos" method="post" commandName="produto">
+	
 		<div>
-			<label>Titulo</label> <input type="text" name="titulo" />
+			<label>Titulo</label> 
+			<input type="text" name="titulo" />
+			<form:errors path="titulo"/>
 		</div>
 		<div>
 			<label>Descrição</label>
 			<textarea rows="10" cols="20" name="descricao"></textarea>
+			<form:errors path="descricao"/>
 		</div>
 		<div>
-			<label>Páginas</label> <input type="text" name="paginas">
+			<label>Páginas</label> 
+			<input type="text" name="paginas">
+			<form:errors path="paginas"/>
 		</div>
 
 		<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
@@ -31,7 +40,6 @@
    		</c:forEach>
 
 		<button type="submit">Cadastrar</button>
-	</form>
-
+</form:form>
 </body>
 </html>
