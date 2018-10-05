@@ -13,11 +13,11 @@
 <body>
 
 	<h1>Casa do Código</h1>
-	<form:form action="/casadocodigo/produtos" method="post" commandName="produto">
+	<form:form action="/casadocodigo/produtos" method="post" commandName="produto" enctype="multipart/form-data">
 	
 		<div>
 			<label>Titulo</label> 
-			<input type="text" path="titulo" />
+			<form:input type="text" path="titulo" />
 			<form:errors path="titulo"/>
 		</div>
 		<div>
@@ -44,6 +44,11 @@
 	            <form:input type="hidden" path="precos[${status.index}].tipo" value="${tipoPreco}" />
 	        </div>
    		</c:forEach>
+   		
+   		<div>
+   			<label>Súmario</label>
+   			<input name="sumario"  type="file"/>
+   		</div>
 
 		<button type="submit">Cadastrar</button>
 </form:form>
