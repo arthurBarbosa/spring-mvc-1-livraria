@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,21 +16,26 @@ import br.com.casadocodigo.loja.models.TipoPreco;
 
 @Component
 @RequestMapping("/carrinho")
-@Scope(value=WebApplicationContext.SCOPE_REQUEST)
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 public class CarrinhoComprasController {
-	
+
 	@Autowired
 	private ProdutoDAO produtoDao;
-	
+
 	@Autowired
-    private CarrinhoCompras carrinho;
+	private CarrinhoCompras carrinho;
 
 	@RequestMapping("add")
 	public ModelAndView add(Integer produtoId, TipoPreco tipo) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/produtos");
+		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
 		CarrinhoItem carrinhoItem = criaItem(produtoId, tipo);
 		carrinho.add(carrinhoItem);
 		return modelAndView;
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView itens() {
+		return new ModelAndView("/carrinho/itens");
 	}
 
 	private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipo) {
@@ -37,4 +43,5 @@ public class CarrinhoComprasController {
 		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipo);
 		return carrinhoItem;
 	}
+
 }
