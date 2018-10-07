@@ -100,6 +100,7 @@
 				</c:forEach>
 				<!-- FIM DO c:forEach -->
 			</tbody>
+			<!-- BOTÃO DE FINALIZAÇÃO -->
 			<tfoot>
 				<tr>
 					<td colspan="3">

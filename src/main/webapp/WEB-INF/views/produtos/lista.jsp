@@ -14,6 +14,7 @@
 
 	<h1>Lista de Produtos</h1>
 	<p style="background: green;"> ${sucesso} </p>
+	<div style="background: red;">${falha}</div>
 	<table>
 		<tr>
 			<td>Título</td>
