@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -28,7 +29,7 @@ public class ProdutosController {
 
 	@Autowired
 	private ProdutoDAO produtoDao;
-	
+
 	@Autowired
 	private FileSaver fileSaver;
 
@@ -48,16 +49,17 @@ public class ProdutosController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
+	@CacheEvict(value = "produtosHome", allEntries = true)
 	public ModelAndView gravar(MultipartFile sumario, @Valid Produto produto, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
 			return form(produto);
 		}
-		
+
 		String path = fileSaver.write("arquivos-upload", sumario);
 		produto.setSumarioPath(path);
-		
+
 		produtoDao.gravar(produto);
 
 		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
@@ -76,7 +78,7 @@ public class ProdutosController {
 
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/detalhe/{id}")
 	public ModelAndView detalhe(@PathVariable("id") Integer id) {
 		ModelAndView modelAndView = new ModelAndView("produtos/detalhe");
