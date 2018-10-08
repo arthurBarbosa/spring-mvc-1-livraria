@@ -3,6 +3,7 @@ C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\ja
 C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\controllers\CarrinhoComprasController.java
 C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\models\CarrinhoItem.java
 C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\conf\JPAConfiguration.java
+C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\conf\JsonViewResolver.java
 C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\infra\FileSaver.java
 C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\validation\ProdutoValidation.java
 C:\Users\arthur.barbosa\Documents\spring-mvc-2\spring-mvc-1-livraria\src\main\java\br\com\casadocodigo\loja\controllers\HomeController.java
