@@ -23,6 +23,7 @@ public class HomeController {
 		List<Produto> produtos = produtoDao.listar();
 		ModelAndView modelAndView = new ModelAndView("home");
 		modelAndView.addObject("produtos", produtos);
+		
 		return modelAndView;
 	}
 }

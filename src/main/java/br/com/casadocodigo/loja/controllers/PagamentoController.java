@@ -33,12 +33,14 @@ public class PagamentoController {
 			String uri = "http://book-payment.herokuapp.com/payment";
 
 			try {
-				String response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()),
-						String.class);
+				String response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()), String.class);
 				model.addFlashAttribute("sucesso", response);
 				System.out.println(response);
-				return new ModelAndView("redirect:/produtos");
-
+				
+				//método para tirar todos os livros do carrinho
+				this.carrinho.limpar();
+				
+				return new ModelAndView("redirect:/");
 			} catch (HttpClientErrorException e) {
 				e.printStackTrace();
 				model.addFlashAttribute("falha", "Valor maior que o permitido");
