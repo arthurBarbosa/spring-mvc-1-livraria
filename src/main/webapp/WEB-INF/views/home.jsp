@@ -31,7 +31,7 @@
 
 	<header id="layout-header">
 		<div class="clearfix container">
-			<a href="/" id="logo"> </a>
+			<a href="${s:mvcUrl('HC#index').build() }"  id="logo"> </a>
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
@@ -42,6 +42,7 @@
 						</security:authorize>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
+						<li><a href="${s:mvcUrl('LC#logout').build() }" rel="nofollow">Sair</a></li>
 					</ul>
 				</nav>
 			</div>

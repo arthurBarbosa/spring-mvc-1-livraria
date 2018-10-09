@@ -30,6 +30,7 @@
 		      <ul class="nav navbar-nav">
 		        <li><a href="${s:mvcUrl('PC#listar').build() }">Lista de Produtos</a></li>
 		        <li><a href="${s:mvcUrl('PC#form').build() }">Cadastro de Produtos</a></li>
+		        <li><a href="${s:mvcUrl('LC#logout').build() }" rel="nofollow">Sair</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		</div>
